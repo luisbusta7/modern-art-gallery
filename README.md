@@ -7,7 +7,7 @@ El proyecto incluye una página principal y una página de localización. La imp
 ## Enlaces
 
 - Repositorio: `https://github.com/luisbusta7/modern-art-gallery.git`
-- Sitio publicado: `https://TU_USUARIO.github.io/modern-art-gallery/`
+- Sitio publicado: `https://luisbusta7.github.io/modern-art-gallery/`
 
 > Sustituye `TU_USUARIO` por el nombre de usuario de GitHub cuando se cree el repositorio.
 
