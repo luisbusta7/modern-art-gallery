@@ -1,0 +1,114 @@
+@use '../abstracts/abstracts' as *;
+
+.hero-home {
+  position: relative;
+
+  // Bloque negro decorativo (solo en desktop)
+  &__dark {
+    display: none;
+  }
+
+  &__media {
+    display: block;
+  }
+
+  &__image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    padding: 32px $container-padding-mobile 0;
+  }
+
+  &__title {
+    @include heading(60px, 55px);
+    color: $black;
+  }
+
+  &__text {
+    margin: 32px 0 0;
+  }
+
+  &__button {
+    margin-top: 32px;
+  }
+
+  // TABLET: imagen a la izquierda, contenido superpuesto a la derecha
+  @include mq($bp-tablet) {
+    height: 700px;
+
+    &__media {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 56.9%; // 437px / 768px
+    }
+
+    &__image {
+      height: 100%;
+    }
+
+    &__container {
+      height: 100%;
+      padding: 140px $container-padding-tablet 0 50.65%; // 389px / 768px
+    }
+
+    &__title {
+      font-size: 70px;
+      line-height: 65px;
+    }
+
+    &__text {
+      margin-top: 48px;
+    }
+
+    &__button {
+      margin-top: 48px;
+    }
+  }
+
+  // DESKTOP: bloque negro + imagen + título blanco a la izquierda y texto a la derecha
+  @include mq($bp-desktop) {
+    max-width: $max-width-frame;
+    height: 800px;
+    margin-inline: auto;
+
+    &__dark {
+      display: block;
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 31.25%; // 450px / 1440px
+      background-color: $black;
+    }
+
+    &__media {
+      left: 31.25%;
+      width: 37.5%; // 540px / 1440px
+    }
+
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      column-gap: 32px;
+      align-items: start;
+      padding: 182px 11.46% 0; // 165px / 1440px
+    }
+
+    &__title {
+      font-size: 96px;
+      line-height: 88px;
+      color: $white;
+    }
+
+    &__text {
+      margin-top: 0;
+    }
+
+    &__button {
+      margin-top: 64px;
+    }
+  }
+}

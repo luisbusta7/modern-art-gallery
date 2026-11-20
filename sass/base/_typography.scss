@@ -1,0 +1,21 @@
+@use '../abstracts/abstracts' as *;
+
+body {
+  @include body(18px, 28px);
+  color: $grey;
+  background-color: $white;
+
+  @include mq($bp-desktop) {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+h1, h2, h3 {
+  @include heading(50px, 45px);
+  color: $black;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}

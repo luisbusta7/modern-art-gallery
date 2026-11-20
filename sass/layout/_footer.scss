@@ -1,0 +1,105 @@
+@use '../abstracts/abstracts' as *;
+
+.footer {
+  padding: 48px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding-inline: 32px;
+  }
+
+  &__logo {
+    @include heading(24px, 20px);
+    color: inherit;
+    transition: color $transition;
+  }
+
+  &__text {
+    @include body(16px, 26px);
+    max-width: 445px;
+    margin: 0;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__social-link {
+    display: block;
+    color: inherit;
+    transition: color $transition;
+
+    svg {
+      display: block;
+    }
+  }
+
+  &__logo:focus-visible,
+  &__social-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  // Variantes de color
+  &--dark {
+    background-color: $black;
+    color: $white;
+
+    .footer__logo:hover,
+    .footer__logo:focus-visible,
+    .footer__social-link:hover,
+    .footer__social-link:focus-visible {
+      color: $brown;
+    }
+  }
+
+  &--brown {
+    background-color: $brown;
+    color: $black;
+
+    .footer__logo:hover,
+    .footer__logo:focus-visible,
+    .footer__social-link:hover,
+    .footer__social-link:focus-visible {
+      color: $white;
+    }
+  }
+
+  @include mq($bp-tablet) {
+    padding: 56px 0;
+
+    &__container {
+      display: grid;
+      grid-template-columns: 173px minmax(0, 280px) 1fr;
+      align-items: start;
+      gap: 0;
+      padding-inline: $container-padding-tablet;
+    }
+
+    &__social {
+      justify-self: end;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    padding: 80px 0;
+
+    &__container {
+      grid-template-columns: 300px minmax(0, 445px) 1fr;
+    }
+
+    &__logo {
+      font-size: 32px;
+      line-height: 29px;
+    }
+
+    &__text {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}

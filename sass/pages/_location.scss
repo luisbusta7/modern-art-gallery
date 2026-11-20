@@ -1,0 +1,107 @@
+@use '../abstracts/abstracts' as *;
+
+// ---------- MAPA ----------
+.map {
+  position: relative;
+  height: 550px;
+  overflow: hidden;
+  background-color: $map-fallback; // por si la imagen aún no está
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // en móvil recorta los lados y mantiene el marcador centrado
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  @include mq($bp-tablet) {
+    height: 600px;
+
+    &__button {
+      left: max(#{$container-padding-tablet}, calc((100% - #{$max-width-container}) / 2));
+    }
+  }
+
+  @include mq($bp-desktop) {
+    &__button {
+      left: max(40px, calc((100% - #{$max-width-container}) / 2 - 9px));
+    }
+  }
+}
+
+// ---------- OUR LOCATION ----------
+.location {
+  padding: 48px 0 52px;
+  background-color: $black;
+  color: $white;
+
+  &__title {
+    @include heading(50px, 45px);
+    color: $white;
+  }
+
+  &__street {
+    @include heading(32px, 32px);
+    margin-top: 40px;
+    color: $brown;
+  }
+
+  &__address {
+    margin-top: 24px;
+    font-style: normal;
+  }
+
+  &__text {
+    margin: 28px 0 0;
+  }
+
+  @include mq($bp-tablet) {
+    padding: 88px 0 68px;
+
+    &__container {
+      display: grid;
+      grid-template-columns: 223px 1fr;
+      column-gap: 67px;
+      align-items: start;
+    }
+
+    &__title {
+      max-width: 250px;
+      font-size: 55px;
+      line-height: 50px;
+    }
+
+    &__street {
+      margin-top: 0;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    padding: 100px 0 132px;
+
+    &__container {
+      grid-template-columns: 570px 1fr;
+      column-gap: 0;
+    }
+
+    &__title {
+      font-size: 70px;
+      line-height: 70px;
+    }
+
+    &__street {
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &__text {
+      margin-top: 32px;
+    }
+  }
+}

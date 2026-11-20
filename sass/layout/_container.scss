@@ -1,0 +1,12 @@
+@use '../abstracts/abstracts' as *;
+
+.container {
+  width: 100%;
+  max-width: calc(#{$max-width-container} + #{$container-padding-tablet * 2});
+  margin-inline: auto;
+  padding-inline: $container-padding-mobile;
+
+  @include mq($bp-tablet) {
+    padding-inline: $container-padding-tablet;
+  }
+}

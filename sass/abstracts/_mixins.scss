@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+// Diseño Mobile first
+@mixin mq($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Tipografía de titulares 
+@mixin heading($size, $line-height) {
+  font-family: $primary-font;
+  font-weight: 900;
+  font-variation-settings: "opsz" 72;
+  font-size: $size;
+  line-height: $line-height;
+  text-transform: uppercase;
+}
+
+// Cuerpo de texto 
+@mixin body($size, $line-height) {
+  font-family: $font-body;
+  font-weight: 300;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}

@@ -1,0 +1,45 @@
+@use '../abstracts/abstracts' as *;
+
+// Botón con texto + caja de flecha (Button 1 y Button 2 del Figma)
+.button {
+  display: inline-flex;
+  height: 72px;
+  font-family: $primary-font;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 3.64px;
+  text-transform: uppercase;
+  color: $white;
+
+  &__label {
+    @include flex-center;
+    padding-inline: 32px;
+    background-color: $black;
+    transition: background-color $transition;
+  }
+
+  &__icon {
+    @include grid-center;
+    width: 56px;
+    background-color: $brown;
+    transition: background-color $transition;
+  }
+
+  // Hover: se invierten los colores
+  &:hover,
+  &:focus-visible {
+    .button__label { background-color: $brown; }
+    .button__icon { background-color: $black; }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $brown;
+    outline-offset: 4px;
+  }
+
+  // Variante "Back to home": flecha a la izquierda apuntando hacia atrás
+  &--back .button__icon img {
+    transform: rotate(180deg);
+  }
+}

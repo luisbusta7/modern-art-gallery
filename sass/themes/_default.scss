@@ -1,0 +1,14 @@
+@use '../abstracts/abstracts' as *;
+
+// CSS custom properties: colores y transición centralizados
+:root {
+  @each $name, $value in $palette {
+    --color-#{$name}: #{$value};
+  }
+
+  --transition: #{$transition-value};
+}
+
+body {
+  overflow-x: hidden;
+}
